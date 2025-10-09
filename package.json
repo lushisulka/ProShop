@@ -1,0 +1,32 @@
+{
+  "name": "proshop",
+  "version": "2.0.0",
+  "description": "eCommerce application built with the MERN stack",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/lushisulka/ProShop.git"
+  },
+  "author": "Lushi Sulka",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lushisulka/ProShop/issues"
+  },
+  "homepage": "https://github.com/lushisulka/ProShop#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.19.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "dotenv": "^17.2.3",
+    "nodemon": "^3.1.10"
+  }
+}
