@@ -2,12 +2,14 @@ import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import { Row, Col, Image, ListGroup, Card, Button, ListGroupItem, Form } from 'react-bootstrap';
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import Rating from "../components/Rating";
 import { useGetProductDetailsQuery } from "../slices/productsApiSlice";
 import { addToCart } from "../slices/cartSlice";
+//import { increase, decrease } from "../slices/numberSlice";
+
 
 
 const ProductScreen = () => {
@@ -15,6 +17,8 @@ const ProductScreen = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    //const myNumber = useSelector((state) => state.number.value);
 
     const [qty, setQty] = useState(1);
 
@@ -112,6 +116,13 @@ const ProductScreen = () => {
                         </Card>
 
                     </Col>
+
+                    {/* <Col md={12}>
+                        <h4>The value is:{myNumber}</h4>
+
+                        <button onClick={() => dispatch(increase())}>Increment</button>
+                        <button onClick={() => dispatch(decrease())}>Decrement</button>
+                    </Col> */}
                 </Row>
             )}
 
