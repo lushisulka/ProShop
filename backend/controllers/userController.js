@@ -148,6 +148,19 @@ const getUserById = asyncHandler(async (req, res) => {
     }
 });
 
+// const getUserById = (async (req, res) => {
+
+//     console.log("user-id", req.params.id);
+//     const user = await User.findById(req.params.id).select('-password');
+
+//     if (user) {
+//         res.json(user);
+//     } else {
+//         res.status(404);
+//         throw new Error('User not found');
+//     }
+// });
+
 
 // @desc    Delete user
 // @route   DELETE /api/users/:id
