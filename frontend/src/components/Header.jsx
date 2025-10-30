@@ -28,7 +28,6 @@ const Header = () => {
         }
     };
 
-    console.log("Header----", userInfo);
     return (
         <header>
             <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect>

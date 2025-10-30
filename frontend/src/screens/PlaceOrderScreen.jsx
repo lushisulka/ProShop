@@ -76,7 +76,7 @@ const PlaceOrderScreen = () => {
                                             <Row>
                                                 <Col md={1}>
                                                     <Image
-                                                        src={item.image}
+                                                        src={`http://localhost:5000/api/upload/${item.image}`}
                                                         alt={item.name}
                                                         fluid
                                                         rounded

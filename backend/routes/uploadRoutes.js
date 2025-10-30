@@ -1,12 +1,13 @@
 import path from 'path';
 import express from 'express';
 import multer from 'multer';
+import fs from 'fs';
 
 const router = express.Router();
 
 const storage = multer.diskStorage({
     destination(req, file, cb) {
-        cb(null, 'uploads/');
+        cb(null, path.join('backend', 'uploads'));
     },
     filename(req, file, cb) {
         cb(
@@ -34,16 +35,29 @@ const upload = multer({ storage, fileFilter });
 const uploadSingleImage = upload.single('image');
 
 router.post('/', (req, res) => {
+    ``
     uploadSingleImage(req, res, function (err) {
         if (err) {
+            console.log("err--", err);
             return res.status(400).send({ message: err.message });
         }
-
         res.status(200).send({
             message: 'Image uploaded successfully',
-            image: `/${req.file.path}`,
+            image: req.file.filename,
         });
     });
+});
+
+router.get('/:imageName', (req, res) => {
+    const imageName = req.params.imageName;
+    const imagePath = path.join(process.cwd(), 'backend', 'uploads', imageName);
+    console.log("imagePath--", imagePath);
+
+    if (fs.existsSync(imagePath)) {
+        res.sendFile(imagePath);
+    } else {
+        res.status(404).send({ message: 'Image not found' });
+    }
 });
 
 export default router;
